@@ -1,0 +1,25 @@
+/* TELA PRINCIPAL */
+#tela {
+    width: 800px;               /* largura da área */
+    height: 120px;              /* altura da área */
+    margin: 40px auto;          /* espaço livre ao redor (centraliza também) */
+    background-color: #c0c0c0;
+    border: 3px solid #333;
+    overflow: hidden;           /* impede que o texto apareça fora da área */
+    position: relative;
+    display: flex;              /* alinhamento do conteúdo */
+    align-items: center;        /* vertical */
+    justify-content: flex-start;/* horizontal início */
+}
+
+/* LETREIRO */
+#letreiro {
+    position: absolute;
+    font-size: 24px;
+    font-weight: bold;
+    white-space: nowrap;        /* impede quebrar linha */
+    padding: 10px 20px;
+    background-color: #d6a5ff;
+    border-radius: 8px;
+    border: 2px solid #8e64b1;
+}
