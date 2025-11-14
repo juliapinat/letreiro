@@ -1,27 +1,30 @@
-let letreiro = document.getElementById("letreiro");
-let tela = document.getElementById("tela");
+window.onload = function() {
 
-let posX = 0;                 // posição inicial
-let direcao = 1;              // 1 = direita, -1 = esquerda
-let velocidade = 2;           // velocidade
+    let letreiro = document.getElementById("letreiro");
+    let tela = document.getElementById("tela");
 
-function animar() {
+    let posX = 0;                 // posição inicial
+    let direcao = 1;              // 1 = direita, -1 = esquerda
+    let velocidade = 2;           // velocidade
 
-    posX += direcao * velocidade;
-    letreiro.style.left = posX + "px";
+    function animar() {
 
-    let limiteDireita = tela.clientWidth - letreiro.clientWidth;
+        posX += direcao * velocidade;
+        letreiro.style.left = posX + "px";
 
-    if (posX >= limiteDireita) {
-        direcao = -1;
+        let limiteDireita = tela.clientWidth - letreiro.clientWidth;
+
+        if (posX >= limiteDireita) {
+            direcao = -1;
+        }
+
+        if (posX <= 0) {
+            direcao = 1;
+        }
+
+        requestAnimationFrame(animar);
     }
 
-    if (posX <= 0) {
-        direcao = 1;
-    }
-
-    requestAnimationFrame(animar);
-}
-
-animar();
+    animar();
+};
 
