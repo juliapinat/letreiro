@@ -1,30 +1,32 @@
-window.onload = function() {
+const texto = document.getElementById("texto");
+const container = document.getElementById("container");
 
-    let letreiro = document.getElementById("letreiro");
-    let tela = document.getElementById("tela");
+// posição inicial
+let pos = 0;
+let velocidade = 2;  // ajuste da velocidade
+let indoDireita = true;
 
-    let posX = 0;                 // posição inicial
-    let direcao = 1;              // 1 = direita, -1 = esquerda
-    let velocidade = 2;           // velocidade
+function animar() {
+    const larguraTexto = texto.offsetWidth;
+    const larguraContainer = container.offsetWidth;
 
-    function animar() {
-
-        posX += direcao * velocidade;
-        letreiro.style.left = posX + "px";
-
-        let limiteDireita = tela.clientWidth - letreiro.clientWidth;
-
-        if (posX >= limiteDireita) {
-            direcao = -1;
+    if (indoDireita) {
+        pos += velocidade;
+        if (pos >= larguraContainer - larguraTexto) {
+            indoDireita = false; // chegou ao final, volta
         }
-
-        if (posX <= 0) {
-            direcao = 1;
+    } else {
+        pos -= velocidade;
+        if (pos <= 0) {
+            indoDireita = true; // chegou ao início, vai para direita
         }
-
-        requestAnimationFrame(animar);
     }
 
-    animar();
-};
+    texto.style.left = pos + "px";
+
+    requestAnimationFrame(animar); // animação suave
+}
+
+animar();
+
 

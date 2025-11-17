@@ -1,26 +1,32 @@
-/* TELA PRINCIPAL */
-#tela {
-    width: 800px;               
-    height: 120px;              
-    margin: 40px auto;          
-    background-color: #c0c0c0;  /* Fundo acinzentado */
-    border: 3px solid #333;
-    overflow: hidden;
-    position: relative;
+body {
+    background: #f0f0f0;
+    display: flex;
+    justify-content: center;   /* centra horizontalmente */
+    align-items: center;       /* centra verticalmente */
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
 }
 
-/* LETREIRO */
-#letreiro {
+/* Área do letreiro */
+#container {
+    width: 600px;         /* largura da tela */
+    height: 120px;        /* altura da tela */
+    background: white;
+    border: 3px solid #333;
+    overflow: hidden;     /* impede o texto de sair */
+    position: relative;
+    padding: 20px;        /* espaço livre ao redor */
+    display: flex;
+    align-items: center;   /* alinhamento vertical */
+    justify-content: center; /* alinhamento horizontal */
+}
+
+/* Texto que desliza */
+#texto {
     position: absolute;
-    font-size: 24px;
+    white-space: nowrap;   /* impede quebra de linha */
+    font-size: 28px;
     font-weight: bold;
-    white-space: nowrap;
-    padding: 10px 20px;
-    background-color: #d6a5ff;
-    border-radius: 8px;
-    border: 2px solid #8e64b1;
-    left: 0;
-    /* Centralizar verticalmente */
-    top: 50%;
-    transform: translateY(-50%);
+    color: #333;
 }
