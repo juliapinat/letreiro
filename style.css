@@ -1,32 +1,30 @@
 body {
-    background: #f0f0f0;
-    display: flex;
-    justify-content: center;   /* centra horizontalmente */
-    align-items: center;       /* centra verticalmente */
-    height: 100vh;
-    margin: 0;
-    font-family: Arial, sans-serif;
-}
+        background: #f0f0f0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        font-family: Arial, sans-serif;
+    }
 
-/* Área do letreiro */
-#container {
-    width: 600px;         /* largura da tela */
-    height: 120px;        /* altura da tela */
-    background: white;
-    border: 3px solid #333;
-    overflow: hidden;     /* impede o texto de sair */
-    position: relative;
-    padding: 20px;        /* espaço livre ao redor */
-    display: flex;
-    align-items: center;   /* alinhamento vertical */
-    justify-content: center; /* alinhamento horizontal */
-}
+    #container {
+        width: 600px;
+        height: 120px;
+        background: white;
+        border: 3px solid #333;
+        overflow: hidden;
+        position: relative;
+        padding: 20px;
+    }
 
-/* Texto que desliza */
-#texto {
-    position: absolute;
-    white-space: nowrap;   /* impede quebra de linha */
-    font-size: 28px;
-    font-weight: bold;
-    color: #333;
-}
+    #texto {
+        position: absolute;
+        white-space: nowrap;
+        font-size: 28px;
+        font-weight: bold;
+        color: #333;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 0; /* posição inicial */
+    }

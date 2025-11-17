@@ -13,13 +13,14 @@
 </div>
 
 <script src="script.js">
-    const texto = document.getElementById("texto");
+     const texto = document.getElementById("texto");
     const container = document.getElementById("container");
 
-    let pos = 0;
-    let velocidade = 2;
+    let pos = 0; // posição inicial
+    let velocidade = 2; // ajuste da velocidade
     let indoDireita = true;
 
+    // Para animar
     function animar() {
         const larguraTexto = texto.offsetWidth;
         const larguraContainer = container.offsetWidth;
@@ -27,12 +28,12 @@
         if (indoDireita) {
             pos += velocidade;
             if (pos >= larguraContainer - larguraTexto) {
-                indoDireita = false; // alcançou a borda direita
+                indoDireita = false; // chegou na borda direita, volta
             }
         } else {
             pos -= velocidade;
             if (pos <= 0) {
-                indoDireita = true; // alcançou a borda esquerda
+                indoDireita = true; // chegou na borda esquerda, vai para direita
             }
         }
 
@@ -41,7 +42,8 @@
         requestAnimationFrame(animar);
     }
 
-    animar();
+    // Espera o texto carregar para pegar o tamanho correto
+    window.onload = animar;
 </script>
 
 </body>
