@@ -12,7 +12,37 @@
     <div id="texto">Não se afoga por cair na água, mas por ficar lá.</div>
 </div>
 
-<script src="script.js"></script>
+<script src="script.js">
+    const texto = document.getElementById("texto");
+    const container = document.getElementById("container");
+
+    let pos = 0;
+    let velocidade = 2;
+    let indoDireita = true;
+
+    function animar() {
+        const larguraTexto = texto.offsetWidth;
+        const larguraContainer = container.offsetWidth;
+
+        if (indoDireita) {
+            pos += velocidade;
+            if (pos >= larguraContainer - larguraTexto) {
+                indoDireita = false; // alcançou a borda direita
+            }
+        } else {
+            pos -= velocidade;
+            if (pos <= 0) {
+                indoDireita = true; // alcançou a borda esquerda
+            }
+        }
+
+        texto.style.left = pos + "px";
+
+        requestAnimationFrame(animar);
+    }
+
+    animar();
+</script>
 
 </body>
 </html>
